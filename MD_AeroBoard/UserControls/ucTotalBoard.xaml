@@ -1,0 +1,295 @@
+﻿<UserControl x:Class="MD_AeroBoard.ucTotalBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MD_AeroBoard"
+             mc:Ignorable="d" Height="Auto" Width="Auto" Background="Transparent"
+             
+             
+        Foreground="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth2" Margin="10" Width="Auto" Background="WhiteSmoke">
+
+            <!-- Контейнер для данных -->
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <!-- Контейнер для прибытия -->
+                <StackPanel
+                    Grid.Column="0"
+                    Background="#004676"
+                    VerticalAlignment="Stretch"
+                    Width="50">
+                    <materialDesign:PackIcon
+                                Uid="400"
+                                Kind="PlaneLanding" 
+                                Foreground="#ffffff"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                </StackPanel>
+                <!-- Контейнер для разделителя -->
+                <StackPanel
+                    Grid.Column="1"
+                    Background="#6EA3D9"
+                    VerticalAlignment="Stretch"
+                    Width="5"/>
+                <!-- Контейнер для значений прибывших -->
+                <StackPanel 
+                    Grid.Column="2"
+                    Orientation="Vertical" 
+                    Margin="10">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#004676"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#004676"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#004676"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+
+                            <TextBlock
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="Последний рейс:"
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+                            <TextBlock 
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="1" 
+                                Grid.Column="1"
+                                Text="За 24 часа:" 
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+                            <TextBlock
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                Text="Сумма за всё время работы:" 
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+
+                            <TextBlock
+                                x:Name="ArrivalCountLast"
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Text="*"
+                                FontWeight="Bold" 
+                                Padding="15"/>
+
+                            <TextBlock
+                                x:Name="ArrivalCount24h"
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="1" 
+                                Grid.Column="2"
+                                Text="*" 
+                                FontWeight="Bold" 
+                                Padding="15"/>
+
+                            <TextBlock
+                                x:Name="ArrivalTotalCount"
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="2" 
+                                Grid.Column="2"
+                                Text="*" 
+                                FontWeight="Bold" 
+                                Padding="15"/>
+
+                        </Grid>
+
+
+                    </StackPanel>
+                <!-- Контейнер для разделителя -->
+                <StackPanel
+                    Grid.Column="3"
+                    Background="#6EA3D9"
+                    VerticalAlignment="Stretch"/>
+                <!-- Контейнер для значений вылетевших -->
+                <StackPanel
+                    Grid.Column="4"
+                    Orientation="Vertical"
+                    Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#1792A2"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#1792A2"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Kind="ManMan" 
+                                Foreground="#1792A2"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+
+                        <TextBlock
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="Последний рейс:"
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+                        <TextBlock 
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="1" 
+                                Grid.Column="1"
+                                Text="За 24 часа:" 
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+                        <TextBlock
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                Text="Сумма за всё время работы:" 
+                                FontWeight="Bold" 
+                                Margin="0,0,0,5"/>
+
+                        <TextBlock
+                            x:Name="DepartureCountLast"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Text="*"
+                            FontWeight="Bold" 
+                            Padding="15"/>
+
+                        <TextBlock
+                            x:Name="DepartureCount24h"
+                                TextAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Row="1" 
+                                Grid.Column="2"
+                                Text="*" 
+                                FontWeight="Bold" 
+                                Padding="15"/>
+
+                        <TextBlock
+                            x:Name="DepartureTotalCount"
+                                TextAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Row="2" 
+                                Grid.Column="2"
+                                Text="*" 
+                                FontWeight="Bold" 
+                                Padding="15"/>
+
+                    </Grid>
+
+
+                </StackPanel>
+                <!-- Контейнер для разделителя -->
+                <StackPanel
+                    Grid.Column="5"
+                    Background="#6EA3D9"
+                    VerticalAlignment="Stretch"
+                    Width="5"/>
+                <!-- Контейнер для вылетов -->
+                <StackPanel
+                    Grid.Column="6"
+                    Background="#1792A2"
+                    VerticalAlignment="Stretch"
+                    Width="50">
+                    <materialDesign:PackIcon
+                                Uid="500"
+                                Kind="FlightTakeoff" 
+                                Foreground="#ffffff"
+                                Width="25"
+                                Height="25" 
+                                Margin="10"
+                                VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MD_AeroBoard.ucArrivalCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MD_AeroBoard"
+             mc:Ignorable="d" Height="Auto" Width="Auto" Background="#1792A2"
+             
+             
+        Foreground="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <materialDesign:PackIcon Grid.Row="0" Grid.Column="0" Kind="FlightLand" Height="32" Width="32" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="18"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Name="FlightType" Margin="18,0,0,0" VerticalAlignment="Center" Style="{StaticResource  MaterialDesignTextBlock}" Text="Тип самолёта" Foreground="White"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Name="FlightFromTo" Margin="18,0,0,0" VerticalAlignment="Center" Style="{StaticResource  MaterialDesignTextBlock}" Text="Откуда" Foreground="White" />
+            <TextBlock Grid.Row="0" Grid.Column="3" Name="FlightTime" Margin="18,0,0,0" VerticalAlignment="Center" Style="{StaticResource  MaterialDesignTextBlock}" Text="Время" Foreground="White" />
+            <TextBlock Grid.Row="0" Grid.Column="4" Name="FlightStatus" Margin="18,0,18,0" VerticalAlignment="Center" Style="{StaticResource  MaterialDesignTextBlock}" Text="Состояние" Foreground="White" />
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="MD_AeroBoard.ucChoiceFile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MD_AeroBoard"
+             mc:Ignorable="d" Height="Auto" Width="Auto"
+             
+             
+        Foreground="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="FlightLand"
+                                                 Height="32"
+                                                 Width="32"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="#176FA2"/>
+            <TextBlock Margin="18,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource  MaterialDesignTextBlock}"
+                                       Text="Выберите файл с рейсами:" />
+        </StackPanel>
+
+        <!--Style="{StaticResource MaterialDesignFloatingHintTextBox}"-->
+
+        <TextBox Grid.Row="1" Grid.Column="0" Name="SourceFile" Foreground="OrangeRed"
+                             materialDesign:HintAssist.Hint="Путь к файлу/-ам рейсов" materialDesign:HintAssist.HintOpacity="1" materialDesign:HintAssist.Foreground="#176FA2"
+                             Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#176FA2"/>
+        <Button Grid.Row="1" Grid.Column="1"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="Укажите путь к файлу шаблона" Background="YellowGreen" Margin="10"
+                Click="Button_Click">
+            <materialDesign:PackIcon Kind="EllipsisHorizontal" Height="24" Width="24" Foreground="#004676" Background="Transparent"/>
+        </Button>
+        <!--<TextBox MaxLength="{Binding MaxLength}" Grid.Row="1" Grid.ColumnSpan="2" Name="txtLimitedInput" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="10"/>-->
+    </Grid>
+</UserControl>
+
+
